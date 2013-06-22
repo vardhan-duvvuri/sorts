@@ -1,0 +1,11 @@
+Q)Why Quicksort is faster than other sorts?
+
+Quicksort is usually faster than sorts that are slower than O(nlogn) (i.e, Insertion sort with its O(n2) running time), simply because for large n their running times increases.
+
+A good reason why Quicksort is so fast in practice compared to most other O(nlogn) algorithms such as Heapsort, is because it is relatively cache-efficient. Heapsort, on the other hand, doesn't have any such speedup: it's not at all accessing memory cache-efficiently.
+
+The reason for this cache efficiency is that it linearly scans the input and linearly partitions the input. This means we can make the most of every cache load we do as we read every number we load into the cache before swapping that cache for another. In particular, the algorithm is cache-oblivious, which gives good cache performance for every cache level, which is another win.
+
+Cache efficiency could be further improved if we use k-way Quicksort. Note that Mergesort also has the same cache-efficiency as Quicksort, and its k-way version in fact has better performance (through lower constant factors) if memory is a severe constrain.
+
+no sorting algorithm is always optimal. Choose whichever one suits your needs. If you need an algorithm that is the quickest for most cases, and you don't mind it might end up being a bit slow in rare cases, and you don't need a stable sort, use Quicksort. Otherwise, use the algorithm that suits your needs better.
